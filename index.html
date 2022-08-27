@@ -106,15 +106,12 @@
     <div id="map"></div>
     <div id="menu">
         <h2 style="margin-top: 3px;">RoutePlanner</h2>
-        <p>Paste Strava route url and start time to see weather and nearby location data</p>
-        <div>
-            <input id="notable-people" type="radio" name="rtoggle" value="notable-people" checked="checked">
-            <label for="all">All</label>
-        </div>
-        <div>
-            <label for="fname">Route url: </label>
-            <input type="text" id="fname" name="fname"><br><br>
-        </div>
+        <p>Upload GPX file and start time to see weather and nearby location data</p>
+        
+        <form action="/action_page.php">
+            <input type="file" id="myFile" name="filename">
+            <input type="submit">
+        </form>
         
     </div>
 
@@ -137,7 +134,7 @@
                 splitSpace = /\s+/;
             // generate a short, numeric hash of a string
             function okhash(x) {
-                if (!x || !x.length) return 0;
+                if (!x || !x.length) return 0; //if either x or x.length is empty?
                 for (var i = 0, h = 0; i < x.length; i++) {
                     h = ((h << 5) - h) + x.charCodeAt(i) | 0;
                 } return h;
