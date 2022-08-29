@@ -35,7 +35,6 @@
             background: rgba(42, 19, 144, 0);
             padding: 20px 20px 30px;
             font-family: 'Open Sans', sans-serif;
-            color: #FBBBFF;
             font-size: 12px;
             max-width: 220px;
             text-justify: auto;
@@ -591,7 +590,9 @@
                 'type': 'geojson',
                 'data': {
                     'type': 'Feature',
-                    'properties': {},
+                    'properties': {
+                        'name': 'route'
+                    },
                     'geometry': {
                         'type': 'LineString',
                         'coordinates': [
