@@ -39,7 +39,21 @@
 
 
 <body>
-    
+    <style>
+        #menu {
+            position: relative;
+            color:#fff;
+            background: rgba(42, 19, 144, 0);
+            padding: 20px 20px 30px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 12px;
+            max-width: 220px;
+            text-justify: auto;
+        }
+        
+            
+        
+    </style>
 
     <div id="map"></div>
     <div id="menu">
@@ -53,18 +67,7 @@
         
     </div>
 
-    <script type="module">
-        import { kml } from "https://unpkg.com/@tmcw/togeojson?module";
-      
-        fetch ("gpxtest.gpx")
-          .then(function (response) {
-            return response.text();
-          })
-          .then(function (xml) {
-            console.log(kml(new DOMParser().parseFromString(xml, "text/xml")));
-          });
-    </script>
-
+    
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoieWpreGN2aWkiLCJhIjoiY2w3NHh6NGNyMDBmZjNwbzg0NmMydDIyeSJ9.JyYyFei4Hn0zT9ZbuiNKuA';
         const map = new mapboxgl.Map({
@@ -74,8 +77,9 @@
             center: [5, 30],
             pitch: 5
         });
+
        
-        map.on('submit', () => {
+        map.on('load', () => {
 
             map.addSource('route', {
                 'type': 'geojson',
@@ -87,7 +91,27 @@
                     'geometry': {
                         'type': 'LineString',
                         'coordinates': [
-                            tj.gpx(filename)
+                            [-122.483696, 37.833818],
+                            [-122.483482, 37.833174],
+                            [-122.483396, 37.8327],
+                            [-122.483568, 37.832056],
+                            [-122.48404, 37.831141],
+                            [-122.48404, 37.830497],
+                            [-122.483482, 37.82992],
+                            [-122.483568, 37.829548],
+                            [-122.48507, 37.829446],
+                            [-122.4861, 37.828802],
+                            [-122.486958, 37.82931],
+                            [-122.487001, 37.830802],
+                            [-122.487516, 37.831683],
+                            [-122.488031, 37.832158],
+                            [-122.488889, 37.832971],
+                            [-122.489876, 37.832632],
+                            [-122.490434, 37.832937],
+                            [-122.49125, 37.832429],
+                            [-122.491636, 37.832564],
+                            [-122.492237, 37.833378],
+                            [-122.493782, 37.833683]
                         ]
                     }
                 }
